@@ -4,20 +4,19 @@ title: Abstract
 sidebar_label: Abstract
 ---
 
-For a system administrator, having to perform security vulnerability analysis and software updates on a daily basis can be a burden.
-To avoid downtime in production environment, it is common for system administrators to choose not to use the automatic update option provided by their package manager and instead perform updates manually.
-This leads to the following problems.
+시스템 관리자는 보안 취약점 분석 및 소프트웨어 업데이트를 매일 수행해야 하는 것이 부담이 될 수 있다. 실 서비스가 운영되는 환경에서는 시스템 문제 등을 방지하기 위해 패키지 관리자가 제공하는 자동 업데이트 옵션을 사용하지 않고 대신 수동으로 업데이트를 수행하는 것이 일반적이다. 이로 인해 다음과 같은 문제가 발생한다.
 
-- System administrators need to constantly monitor NVD (National Vulnerability Database) or similar databases for new vulnerabilities.
-- It might be impossible for the system administrator to monitor all software if there is a large number of installed packages on the server.
-- It is expensive to perform analysis to determine the servers affected by new vulnerabilities. The possibility of overlooking a server or two during analysis is there.
+- 시스템 관리자는 새로운 취약점에 대해 NVD(National Vulnerability Database) 또는 이와 유사한 데이터베이스를 지속적으로 모니터링해야 한다.
+- 서버에 설치된 패키지가 많은 경우 시스템 관리자가 모든 소프트웨어를 모니터링하는 것은 불가능할 수 있다.
+- 새로운 취약점에 영향을 받는 서버를 파악하기 위해 분석을 수행하는 것은 비용이 많이 든다. 분석 중에 한두 대의 서버를 놓칠 가능성이 있다.
 
 
-Vuls is a tool created to solve the problems listed above. It has the following characteristics.
+Vuls는 위에 열거한 문제를 해결하기 위해 만들어진 도구다. 그것은 다음과 같은 특징을 가지고 있다. 
 
-- Informs users of the vulnerabilities that are related to the system.
-- Informs users of the servers that are affected.
-- Vulnerability detection is done automatically to prevent any oversight.
-- Report is generated on regular basis using CRON or other methods to manage vulnerability.
+- 사용자에게 시스템과 관련된 취약점을 알려준다.
+- 영향을 받는 서버를 사용자에게 알려준다.
+- 취약점 탐지는 자동으로 수행되어 사용자가 수동으로 해야하는 업무를 줄일 수 있다.
+- 취약성을 관리하기 위해 CRON이나 다른 방법을 사용하여 정기적으로 보고서를 생성한다.
+
 
 ![Vuls-Motivation](/img/docs/vuls-motivation.png)
