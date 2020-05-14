@@ -4,16 +4,16 @@ title: Main Features
 sidebar_label: Main Features
 ---
 
-## Scan for any vulnerabilities in Linux/FreeBSD Server
+## Linux/FreeBSD Server의 취약점 스캔
 
-[Supports major Linux/FreeBSD](supported-os.md)
+[주요 지원 OS](supported-os.md)
 
 - Alpine, Ubuntu, Debian, CentOS, Amazon Linux, RHEL, Oracle Linux, SUSE Enterprise Linux and Raspbian, FreeBSD
 - Cloud, on-premise, Docker
 
-## High quality scan
+## 고품질 스캔
 
-Vuls uses Multiple vulnerability databases
+Vuls는 다음과 같이 여러개의 취약점 데이터베이스를 사용한다.
 
 - [NVD](https://nvd.nist.gov/)
 - [JVN(Japanese)](http://jvndb.jvn.jp/apis/myjvn/)
@@ -39,51 +39,51 @@ Vuls uses Multiple vulnerability databases
 - [RustSec Advisory Database](https://github.com/RustSec/advisory-db)
 - Changelog
 
-## Fast scan and Deep scan
+## 빠른 스캔과 깊은 스캔
 
-[Fast Scan](architecture-fast-scan.md)
+[빠른 스캔](architecture-fast-scan.md)
 
-- Scan without root privilege, no dependencies
-- Almost no load on the scan target server
-- Offline mode scan with no internet access. (Red Hat, CentOS, OracleLinux, Ubuntu, Debian)
+- 루트 권한 없이 스캔, 종속성 없음
+- 스캔 대상 서버에 부하가 거의 없음
+- 인터넷 접속이 없는 오프라인 모드 스캔 (Red Hat, CentOS, OracleLinux, Ubuntu, Devian)
 
-[Fast Root Scan](architecture-fast-root-scan.md)
+[Root 권한이 필요한 빠른 스캔](architecture-fast-root-scan.md)
 
-- Scan with root privilege
-- Almost no load on the scan target server
-- Detect processes affected by update using yum-ps (Red Hat, CentOS, Oracle Linux and Amazon Linux)
-- Detect processes which updated before but not restarting yet using checkrestart of debian-goodies (Debian and Ubuntu)
-- Offline mode scan with no internet access. (Red Hat, CentOS, OracleLinux, Ubuntu, Debian)
+- 루트 권한으로 스캔
+- 스캔 대상 서버에 부하가 거의 없음
+- yum-ps(Red Hat, CentOS, Oracle Linux, Amazon Linux)를 사용하여 업데이트에 영향을 받는 프로세스 탐지
+- debian-goodies의 checkrestart(Debian 및 Ubuntu)를 사용하여 이전에 업데이트 되었지만 아직 다시 시작하지 않은 프로세스 감지
+- 인터넷 접속이 없는 오프라인 모드 스캔. (Red Hat, CentOS, OracleLinux, Ubuntu, Devian)
 
-[Deep Scan](architecture-deep-scan.md)
+[깊은 스캔](architecture-deep-scan.md)
 
-- same as fast-root scan mode for now.
+- Root 권한이 필요한 빠른 스캔과 동일
 
-## [Remote scan mode, Local scan mode, Server mode](architecture-remote-local.md)
+## [원격 스캔모드, 로컬 스캔모드, 서버모드](architecture-remote-local.md)
 
-[Remote scan Mode](architecture-remote-scan.md)
+[원격 스캔 모드](architecture-remote-scan.md)
 
-- User is required to only setup one machine that is connected to other target servers via SSH
+- 사용자는 SSH를 통해 다른 대상 서버에 연결된 하나의 시스템만 설정해야 한다.
 
-[Local scan mode](architecture-local-scan.md)
+[로컬 스캔 모드](architecture-local-scan.md)
 
-- If you don't want the central Vuls server to connect to each server by SSH, you can use Vuls in the Local Scan mode.
+- SSH를 통해 Vuls 서버가 각 서버에 연결되지 않도록 하려면 로컬 검색 모드에서 Vuls를 사용한다.
 
-[Server mode](https://vuls.io/docs/en/usage-server.html)
+[서버 모드](https://vuls.io/docs/en/usage-server.html)
 
-- No SSH needed, No Scanner needed. Only issuing Linux commands directory on the scan tareget serve.
-- First, start Vuls in server mode and listen as an HTTP server.
-- Start Vuls in server mode and listen as an HTTP server.
-- Next, issue a command on the scan target server to collect software information. Then send the result to Vuls Server via HTTP. You receive the scan results as JSON format.
+- SSH도 필요 없고 스캐너도 필요 없다. 검색 태겟 서비스에서 Linux 명령 디렉토리만 실행.
+- 먼저 서버 모드에서 Vuls를 시작하고 HTTP 서버로 데이터를 받는다.
+- 서버 모드에서 취약점을 시작하고 HTTP 서버로 수신을 대기한다.
+- 다음으로, 스캔 대상 서버에 명령을 내려 소프트웨어 정보를 수집한다. 그런 다음 HTTP를 통해 결과를 Vuls Server로 전송하고 검색 결과는 JSON 형식으로 수신한다.
 
-## **Dynamic** Analysis
+## **상세** 분석
 
-- It is possible to acquire the state of the server by connecting via SSH and executing the command
-- Vuls warns not-restarting-processes which updated before but not restarting yet and detects processes affecting software update in advance.
+- SSH를 통해 접속하여 명령을 실행함으로써 서버 상태를 획득할 수 있다.
+- Vuls는 다시 시작하지 않은 프로세스에 대해 경고하지만 아직 다시 시작하지는 않았으며 소프트웨어 업데이트에 영향을 미치는 프로세스를 미리 감지한다.
 
-## **Static** Container Analysis
+## **정적** 컨테이너 분석
 
-- Vuls can scan container images such as Docker Image on ECR, GCR and local.
+- Vuls는 ECR, GCR 및 로컬의 Docker Image와 같은 컨테이너 이미지를 스캔 할 수 있다.
 - TODO Link
 
 ## [Scan middleware that are not included in OS package management](usage-scan-non-os-packages.md)
