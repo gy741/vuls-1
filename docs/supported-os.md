@@ -1,6 +1,6 @@
 ---
 id: supported-os
-title: Supported OS
+title: 지원 운영체제
 sidebar_label: Supported OS
 ---
 
