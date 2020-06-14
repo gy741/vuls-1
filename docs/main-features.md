@@ -55,7 +55,7 @@ Vuls는 다음과 같이 여러개의 취약점 데이터베이스를 사용한�
 - debian-goodies의 checkrestart(Debian 및 Ubuntu)를 사용하여 이전에 업데이트 되었지만 아직 다시 시작하지 않은 프로세스 감지
 - 인터넷 접속이 없는 오프라인 모드 스캔. (Red Hat, CentOS, OracleLinux, Ubuntu, Devian)
 
-[깊은 스캔](architecture-deep-scan.md)
+[상세 스캔](architecture-deep-scan.md)
 
 - Root 권한이 필요한 빠른 스캔과 동일
 
@@ -86,23 +86,23 @@ Vuls는 다음과 같이 여러개의 취약점 데이터베이스를 사용한�
 - Vuls는 ECR, GCR 및 로컬의 Docker Image와 같은 컨테이너 이미지를 스캔 할 수 있다.
 - TODO Link
 
-## [Scan middleware that are not included in OS package management](usage-scan-non-os-packages.md)
+## [OS 패키지 관리에 포함되지 않은 미들웨어 스캔](usage-scan-non-os-packages.md)
 
-- Scan middleware, programming language libraries and framework for vulnerability
-- Support software registered in CPE
+- 미들웨어, 프로그래밍 언어 라이브러리 및 프레임 워크의 취약점 스캔
+- CPE에 등록된 지원 소프트웨어
 
-## Integration
+## 통합
 
 - [GitHub Security Alerts](usage-scan-non-os-packages.html#usage-integrate-with-github-security-alerts.md)
 - [OWASP Dependency Check](usage-scan-non-os-packages.html#usage-integrate-with-owasp-dependency-check-to-automatic-update-when-the-libraries-are-updated-experimental.md)
 - [WordPress](usage-scan-wordpress.md)
 
-## MISC
+## 기타
 
-- Nondestructive testing
-- Pre-authorization is *NOT* necessary before scanning on AWS
-  - Vuls works well with Continuous Integration since tests can be run every day. This allows you to find vulnerabilities very quickly.
-- [Auto generation of configuration file template](usage-automatic-discovery.md)
-  - Auto detection of servers set using CIDR, generate configuration file template
-- Email and Slack notification is possible (supports Japanese language)
-- Scan result is viewable on accessory software, [TUI Viewer on terminal](usage-tui.md) or Web UI ([VulsRepo](https://github.com/ishiDACo/vulsrepo)).
+- 비파괴 검사
+- AWS에서 스캔하기 위해서 사전 승인이 필요하지 않습니다.
+- Vuls는 매일 테스트를 실행할 수 있어 지속적인 통합과 잘 작동한다. 이를통해 취약점을 빠르게 찾을 수 있다.
+- [구성 파일 템플릿 자동 생성](usage-automatic-discovery.md)
+  - CIDR을 사용하여 설정된 서버의 자동 감지, 구성 파일 템플리트 생성
+- 이메일 및 슬랙 알림 가능(일본어 지원)
+- 스캔결과는 TUI, [TUI Viewer on terminal](usage-tui.md) 또는 Web UI를 지원한다. ([VulsRepo](https://github.com/ishiDACo/vulsrepo)).
