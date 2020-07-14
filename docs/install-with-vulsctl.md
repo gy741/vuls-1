@@ -6,42 +6,38 @@ sidebar_label: Vulsctl - Quickest Vuls setup
 
 ## Vulsctl
 
-### Linux Distributions
-The following example should work on Fedora based Linux distributions,
-which include: CentOS, RedHat, Amazon Linux etc (tested on CentOS and
-Red Hat 7).
+### 리눅스 배포판
+다음 예제는 CentOS, RedHat, Amazon Linux 등을 포함한 Fedora 기반 Linux 배포판에서 동작한다.(CentOS 및 Red Hat 7에서 테스트).
 
-[Vulsctl](https://github.com/vulsio/vulsctl) was created to ease setup. Each
-shell script is a wrapper around Docker commands.
+[Vulsctl](https://github.com/vulsio/vulsctl)은 설정을 쉽게하기 위해 만들어졌으며 Docker 기반에서 실행된다. 
 
-## Setup Docker
+## 도커 설치
 
-- Install [Docker](https://docs.docker.com/engine/install/)
-- [Manage Docker as a non-root user](https://docs.docker.com/install/linux/linux-postinstall/)
+- [Docker 설치] (https://docs.docker.com/engine/install/)
+- [root 사용자가 아닌 일반 사용자로 도커 관리](https://docs.docker.com/install/linux/linux-postinstall/)
 
 ```bash
 $ sudo systemctl start docker
 ```
 
-## Clone Vulsctl
+## Vulsctl 복사
 
 ```bash
 $ git clone https://github.com/vulsio/vulsctl.git
 $ cd vulsctl
 ```
 
-## Fetch Vulnerability Databases
+## 취약점 데이터베이스 가져오기
 
-This will take some time ...
+이 작업은 시간이 걸릴 수 있다...
 
 ```
 $ ./update-all.sh
 ```
 
-## Config, Scan, Report
+## 설정, 스캔, 보고서
 
-Prepare the **config.toml** in the **vulsctl** install directory similar to
-the configuration below.
+**vulsctl** 설치 디렉토리에서 아래 구성을 참고하여 **config.toml** 파일을 준비한다.
 
 ```
 [servers]
@@ -54,13 +50,12 @@ sshConfigPath   = "/root/.ssh/config"
 # keypath in the Vuls docker container
 keyPath     = "/root/.ssh/id_rsa"
 ```
-When `config` exists in `.ssh`, vuls refers to `/root/.ssh/config` in the docker container when connecting to SSH.
-However, an error occurs because the local user does not match the user in Docker.
-To deal with this, specify `/root/.ssh/config` in `sshConfigPath`.
+`.ssh`에 `config`파일이 있을 경우 SSH 연결할 떄 vuls는 도커 컨테이너에 있는 `/root/.ssh/config` 파일을 가리킨다.
+그러나 로컬 사용자가 도커의 사용자와 일치하지 않기 때문에 오류가 발생한다.
+이 문제를 해결하려면 `sshConfigPath` 옵션에 `/root/.ssh/config`  파일을 지정한다.
 
-The **scan.sh** will mount **$HOME/.ssh** from the host operating system into
-the Docker container, however you will need to SSH into the target server
-beforehand which will add your fingerprint to $HOME/.ssh/known_hosts.
+**scan.sh** 파일은 호스트 운영체제에서 **$HOME/.ssh**를 컨테이너에 탑재하지만,
+미리 대상서버에 SSH를 설치해야 $HOME/.ssh/known_hosts 지문을 추가할 수 있다.
 
 `
 ![](https://user-images.githubusercontent.com/534611/66093182-20535f00-e5ca-11e9-8060-8c9247abcefa.jpg)
@@ -75,14 +70,14 @@ $ ./report.sh
 $ ./tui.sh
 ```
 
-For details, see
+자세한 설명은 아래 링크에 있다.
 - [scan.sh](https://github.com/vulsio/vulsctl/blob/master/scan.sh)
 - [report.sh](https://github.com/vulsio/vulsctl/blob/master/report.sh)
 - [tui.sh](https://github.com/vulsio/vulsctl/blob/master/tui.sh)
 
 ## Deploy `vuls` on the host
 
-You can deploy `vuls` on your host easily while using the [install-host.sh](https://github.com/vulsio/vulsctl/blob/5efed5284bf97e9915563644d90411490bcf47ce/install-host.sh) script.
+[install-host.sh](https://github.com/vulsio/vulsctl/blob/5efed5284bf97e9915563644d90411490bcf47ce/install-host.sh) 스크립트를 사용하여 `vuls`을 쉽게 설치 할 수 있다.
 
 ```bash
 $ sudo bash install-host.sh
@@ -99,4 +94,4 @@ CONTAINER ID        IMAGE               COMMAND             CREATED             
 39c8830dbeac        ishidaco/vulsrepo   "vulsrepo-server"   3 seconds ago       Up 1 second         0.0.0.0:5111->5111/tcp   focused_wu
 ```
 
-Vulsrepo is running on http://host-ip:5111 .
+Vulsrepo는 http://host-ip:5111 기본 포트로 5111을 사용하여 실행된다.
