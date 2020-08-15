@@ -6,13 +6,14 @@ sidebar_label: architecture
 
 ## [fast-scan](architecture-fast-scan.md)
 
-Fast scan mode scans without root privilege, no dependencies, almost no load on the scan target server.
+빠른 스캔 모드는 루트 권한과 종속성없이 스캔 대상 서버에 거의 부하가없는 스캔 모드이다.
 
 ## [fast-root scan mode](architecture-fast-root-scan.md)
 
-Fast scan mode scans with root privilege, almost no load on the scan target server.
+빠른 루트 스캔 모드는 루트 권한을 필요로 하며 스캔 대상 서버에 거의 부하가없는 스캔 모드이다.
 
 ## [Offline scan mode](architecture-fast-scan.md)
 
-`fast` and `fast-root` have `offline` scan mode. Vuls scans with no internet access with `offline`.
-For details, see [fast offline](usage-scan.md#fast-scan-without-internet-access) and [fast-root offline](usage-scan.md#fast-root-scan-without-internet-access)
+오프라인 스캔 모드는 `fast` 와 `fast-root` 모드에서 지원하며,`offline` 옵션을 함께 사용하여 인터넷 연결이 없는 상태에서 스캔할 수 있다.
+좀 더 자세한 설명은 [fast offline](usage-scan.md#fast-scan-without-internet-access) 와 [fast-root offline](usage-scan.md#fast-root-scan-without-internet-access)
+문서 참조
