@@ -4,7 +4,7 @@ title: Fast Scan
 sidebar_label: Fast Scan
 ---
 
-Fast scan mode scans without root privilege, no dependencies almost no load on the scan target server.
+빠른 스캔 모드는 루트 권한과 종속성없이 스캔 대상 서버에 거의 부하가없는 스캔 모드이다.
 
 ![Vuls-Scan-Flow](/img/docs/vuls-scan-flow-fast.png)
 
@@ -20,11 +20,11 @@ Fast scan mode scans without root privilege, no dependencies almost no load on t
 | Amazon      |                                   Fast |　                No |  Supported |                                     Need |
 | SUSE Enterprise |                               Fast |　                No |  Supported |                                       No |
 
-Fast scan mode is not supported for Raspbian.
+빠른 스캔모드는 Raspbian를 지원하지 않는다.
 
 ## With -offline option
 
-Scan with -offline option, vuls scans with no internet access.
+-offline 옵션을 사용해서 vuls는 인터넷 액세스없이 스캔할 수 있다.
 
 | Distribution|                             Scan Speed | Need Root Privilege |       OVAL | Need Internet Access|
 |:------------|:--------------------------------------:|:-------------------:|:----------:|:---------------------------------------:|
@@ -37,11 +37,11 @@ Scan with -offline option, vuls scans with no internet access.
 | Amazo       |                                   Fast |　                No |  Supported |                                      No |
 | SUSE Enterprise |                               Fast |　                No |  Supported |                                      No |
 
-Offline scan mode is not supported for FreeBSD, Raspbian.
+오프라인 모드는 FreeBSD, Raspbian를 지원하지 않는다.
 
 ## Dependencies and /etc/sudoers
 
-For details, see
+자세한 설명 아래 문서 참조
 - Dependencies: [usage-configtest](usage-configtest.md#fast-scan-mode)
 - /etc/sudoers: [/etc/sudoers](usage-configtest.md#etc-sudoers)
 
