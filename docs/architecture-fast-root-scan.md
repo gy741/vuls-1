@@ -21,7 +21,7 @@ sidebar_label: Fast-Root Scan
 
 ## With -offline option
 
-Scan with -offline option, vuls scans with no internet access.
+-offline 옵션을 사용해서 vuls는 인터넷 액세스없이 스캔할 수 있다.
 
 | Distribution|                             Scan Speed | Need Root Privilege |       OVAL | Need Internet Access|
 |:------------|:--------------------------------------:|:-------------------:|:----------:|:---------------------------------------:|
@@ -34,21 +34,21 @@ Scan with -offline option, vuls scans with no internet access.
 | Amazon      |                                   Fast |　              Need |  Supported |                                    No |
 | SUSE Enterprise |                               Fast |　                No |  Supported |                                    No |
 
-Offline scan mode is not supported FreeBSD, Raspbian.
+오프라인 스캔 모드는 FreeBSD, Raspbian을 지원하지 않는다.
 
 ## Dependencies and /etc/sudoers
 
-For details, see
+자세한 내용은 아래 문서 참조
 
 - Dependencies: [usage-configtest](usage-configtest.md#fast-root-scan-mode)
 - /etc/sudoers: [/etc/sudoers](usage-configtest.md#etc-sudoers)
 
 ## Runtime Inspection
 
-### Detect processes affected by next package update
+### 다음 패키지 업데이트의 영향을받는 프로세스 감지
 
-It is possible to know processes affecting software update in advance using yum-ps on RedHat, CentOS, OracleLinux and Amazon Linux
+RedHat, CentOS, OracleLinux, Amazon Linux에서 yum-ps를 사용하여 소프트웨어 업데이트에 영향을 미치는 프로세스를 미리 알 수 있다.
 
-### Detect not-restarted-processes
+### 다시 시작되지 않은 프로세스 탐지
 
-Detect processes which updated before but not restarting yet using checkrestart of debian-goodies on Debian and Ubuntu
+Debian, Ubuntu에서 debian-goodies의 checkrestart를 사용하여 이전에 업데이트되었지만 아직 다시 시작되지 않은 프로세스 감지할 수 있다.
