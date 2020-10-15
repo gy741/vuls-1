@@ -4,28 +4,27 @@ title: Tutorial - Remote Scan Mode
 sidebar_label: Remote Scan Mode
 ---
 
-This tutorial will let you scan the vulnerabilities on the remote host via SSH with Vuls.   
-This can be done in the following steps.  
+이 튜토리얼을 통해 SSH를 통해 원격 호스트에서 uls를 사용하여 취약점을 스캔 할 수 있다.
 
-1. Launch new Ubuntu Linux
-1. Enable to SSH from localhost
-1. Configuration
-1. Check config.toml and settings on the server before scanning
-1. Scan
-1. Reporting
+1. 새로운 Ubuntu Linux 시작
+1. localhost에서 SSH 활성화
+1. 구성 확인
+1. 스캔하기 전에 config.toml 및 서버의 설정 확인
+1. 스캔 시작
+1. 보고서 확인
 
-We will use the Vuls server (called localhost) created in the previous tutorial.
+이전 튜토리얼에서 생성된 Vuls 서버(localhost라고 함)를 사용할 것이다.
 
-## Step1. Launch new Ubuntu Linux
+## Step1. 새로운 Ubuntu Linux 실행
 
-Same like as [Tutorial: Local Scan Mode#Step1. Launch CentOS7](tutorial-local-scan.md#step1-launch-centos7)  
-Launch a new terminal and SSH to the Remote host.  
-To add the remote host's Host Key to `$HOME/.ssh/known_hosts`, you need to log in to the remote host through SSH before scanning.
+다음 튜토리얼과 같다.  [Tutorial: Local Scan Mode#Step1. Launch CentOS7](tutorial-local-scan.md#step1-launch-centos7)  
+터미널을 실행하고 원격 호스트에 연결한다.
+원격 호스트 키를 `$HOME/.ssh/known_hosts`,에 추가하려면 검색하기 전에 SSH를 통해 원격 호스트에 로그인해야 한다.
 
-## Step2. Enable to SSH from localhost
+## Step2. localhost에서 SSH 활성화
 
-Vuls doesn't support SSH password authentication. So you have to use SSH key-based authentication.  
-Create a keypair on the localhost then append the public key to authorized_keys on the remote host.  
+Vuls SSH 암호 인증을 지원하지 않으며 따라서 SSH 키 기반 인증을 사용해야 한다.
+localhost에 키페어를 만든 다음 원격 호스트의 certified_keys에 공개 키를 추가한다.
 
 ### localhost
 
@@ -45,10 +44,10 @@ $ chmod 600 ~/.ssh/authorized_keys
 $ vim ~/.ssh/authorized_keys
 ```
 
-Paste from the clipboard to `~/.ssh/authorized_keys`
+클립보드에서 `~/.ssh/authorized_keys` 파일에 붙여넣는다.
 
-And also, confirm that the host keys of scan target servers has been registered in the known_hosts of the localhost.
-To add the remote host's Host Key to `$HOME/.ssh/known_hosts`, you need to log in to the remote host through SSH before scanning.
+또한 검색 대상 서버의 호스트 키가 localhosts의 known_hosts에 등록되었는지 확인한다.
+원격 호스트의 호스트 키를 `$HOME/.ssh/known_hosts`에 추가하려면 검색하기 전에 SSH를 통해 원격 호스트에 로그인해야 한다.
 
 ### localhost
 
